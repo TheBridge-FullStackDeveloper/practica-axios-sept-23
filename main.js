@@ -1,38 +1,72 @@
 // GET REQUEST
-function getTodos() {
-  axios
-    .get("https://jsonplaceholder.typicode.com/todos")
-    .then((res) => showOutput(res))
-    .catch((err) => console.error(err));
+async function getTodos() {
+  // axios
+  //   .get("https://jsonplaceholder.typicode.com/todos")
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.error(err));
+  try {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
+    showOutput(res);
+  } catch (error) {
+    console.error(error);
+  }
 }
 // POST REQUEST
-function addTodo() {
-  axios
-    .post("https://jsonplaceholder.typicode.com/todos", {
+async function addTodo() {
+  // axios
+  //   .post("https://jsonplaceholder.typicode.com/todos", {
+  //     title: "Hacer un buen readme en los próximos meses",
+  //     completed: false,
+  //   })
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.error(err));
+  try {
+    const res = await axios.post("https://jsonplaceholder.typicode.com/todos", {
       title: "Hacer un buen readme en los próximos meses",
       completed: false,
-    })
-    .then((res) => showOutput(res))
-    .catch((err) => console.error(err));
+    });
+    showOutput(res);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // PUT/PATCH REQUEST
-function updateTodo() {
-  axios
-    .put("https://jsonplaceholder.typicode.com/todos/7", {
-      title: "Hacer un buen readme en los próximos meses",
-      completed: true,
-    })
-    .then((res) => showOutput(res))
-    .catch((err) => console.error(err));
+async function updateTodo() {
+  // axios
+  //   .put("https://jsonplaceholder.typicode.com/todos/7", {
+  //     title: "Hacer un buen readme en los próximos meses",
+  //     completed: true,
+  //   })
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.error(err));
+  try {
+    const res = await axios.put(
+      "https://jsonplaceholder.typicode.com/todos/7",
+      {
+        title: "Hacer un buen readme en los próximos meses",
+        completed: true,
+      }
+    )
+    showOutput(res)
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // DELETE REQUEST
-function removeTodo() {
-  axios
+async function removeTodo() {
+  // axios
+  //   .delete("https://jsonplaceholder.typicode.com/todos/7")
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.error(err));
+  try {
+    const res = await axios
     .delete("https://jsonplaceholder.typicode.com/todos/7")
-    .then((res) => showOutput(res))
-    .catch((err) => console.error(err));
+    showOutput(res)
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // Show output in browser
